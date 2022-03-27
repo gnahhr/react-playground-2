@@ -21,7 +21,6 @@ const Main = () => {
         });
         var some = await response.json();
         setProducts(some["data"]);
-
   }, [])
 
   const display = () => {
@@ -35,18 +34,23 @@ const Main = () => {
           <h1>No Products</h1>
       : 
         <table>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Quantity</th>
-            <th>Expiration Date</th>
-            <th>Image URL</th>
-            <th>Created At</th>
-            <th colspan={2}>ACTIONS</th>
-          </tr>
-          {products.map((product) => (
-            <Product key={product.id} data={product} />
-          ))}
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Quantity</th>
+              <th>Expiration Date</th>
+              <th>Image URL</th>
+              <th>Created At</th>
+              <th colSpan={2}>ACTIONS</th>
+            </tr>
+          </thead>
+          <tbody>
+            {products.map((product) => (
+              <Product key={product.id} data={product} />
+            ))}
+          </tbody>
+          
         </table>
       }
     </main>

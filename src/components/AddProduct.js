@@ -53,21 +53,15 @@ const onInputChange = (e)=>{
   return (
     <div>
       <img src="http://localhost:3001/images/1648273883995-nayeon.jpg" alt="" />
-
-
-      {/* <form action="addSubmit" method="post" id="addForm"> */}
-        <label htmlFor="id">ID:</label> <br />
-        <input type="text" name="id" id="id" value={id} onChange={(e) => onInputChange(e)}/> <br />
-        <label htmlFor="name">Name:</label> <br />
-        <input type="text" name="name" id="name" value={name} onChange={(e) => onInputChange(e)}/><br />
-        <label htmlFor="quantity">Quantity:</label> <br />
-        <input type="number" name="quantity" id="qty" value={quantity} onChange={(e) => onInputChange(e)}/><br />
-        <label htmlFor="expiration_date">Expiration Date:</label> <br />
-        <input type="date" name="expDate" id="expdate" value={expDate} onChange={(e) => onInputChange(e)}/><br />
-        <label htmlFor="image">Image URL:</label> <br />
-        <input type="file" name="imgURL" id="imgURL" onChange={(e) => setFile(e)}/>
-        <input type="submit" value="Submit It Jonathan" onClick={addSubmit}/><br />
-      {/* </form> */}
+      <label htmlFor="name">Name:</label> <br />
+      <input type="text" name="name" id="name" value={name} onChange={(e) => onInputChange(e)}/><br />
+      <label htmlFor="quantity">Quantity:</label> <br />
+      <input type="number" name="quantity" id="qty" value={quantity} onChange={(e) => onInputChange(e)}/><br />
+      <label htmlFor="expiration_date">Expiration Date:</label> <br />
+      <input type="date" name="expDate" id="expdate" value={expDate} onChange={(e) => onInputChange(e)}/><br />
+      <label htmlFor="image">Image URL:</label> <br />
+      <input type="file" name="imgURL" id="imgURL" onChange={(e) => setFile(e)}/>
+      <input type="submit" value="Submit It Jonathan" onClick={addSubmit}/><br />
     </div>
   )
 }

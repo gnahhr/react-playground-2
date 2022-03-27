@@ -7,6 +7,7 @@ import AddProduct from './components/AddProduct.js'
 import UpdateProduct from './components/UpdateProduct.js'
 import React, { useState } from 'react'
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
+import Blank from './components/Blank.js';
 
 function App() {
   const [token, setToken] = useState(true);
@@ -19,8 +20,8 @@ function App() {
           {token ?
             <Routes>
               <Route path="/" exact element={<Main />}/>
-              <Route path="/add" element={<AddProduct />}/>
-              <Route path="/update" element={<UpdateProduct />}/>
+              <Route path="add" element={<AddProduct />}/>
+              <Route path="update/:updateId" element={<UpdateProduct />}/>
             </Routes>
             :
             <Login props={setToken}/>
