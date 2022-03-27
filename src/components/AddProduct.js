@@ -12,32 +12,22 @@ const AddProduct = () => {
       var url = 'http://localhost:3001/api/product';
       
       const data = new FormData();
-
-      data.append("name", name);
-      data.append("quantity", quantity);
-      data.append("expiration_date", expDate);
-      data.append("file", imgURL);
-
-      // const data = {
-      //   "name": name,
-      //   "quantity": quantity,
-      //   "expiration_date": expDate,
-      //   "file": imgURL
-      // }
-      
-      console.log(data);
+      await data.append("name", name);
+      await data.append("quantity", quantity);
+      await data.append("expirationDate", expDate);
+      await data.append("image", imgURL);
 
       const response = await fetch(url, {
-          method: 'POST', // *GET, POST, PUT, DELETE, etc.
-          body: data // body data type must match "Content-Type" header
-      })
-      .then(response => response.json())
-      .then(result => {
-        console.log('Success:', result);
-      })
-      .catch(error => {
-        console.error('Error:', error);
-      });
+        method: 'POST', // *GET, POST, PUT, DELETE, etc.
+        mode: 'cors', // no-cors, *cors, same-origin
+        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'same-origin', // include, *same-origin, omit
+        redirect: 'follow', // manual, *follow, error
+        referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+        body: data // body data type must match "Content-Type" header
+    });
+
+    console.log(await response.json());
   }
 
 const setInputValue = {
@@ -62,6 +52,9 @@ const onInputChange = (e)=>{
 
   return (
     <div>
+      <img src="http://localhost:3001/images/1648273883995-nayeon.jpg" alt="" />
+
+
       {/* <form action="addSubmit" method="post" id="addForm"> */}
         <label htmlFor="id">ID:</label> <br />
         <input type="text" name="id" id="id" value={id} onChange={(e) => onInputChange(e)}/> <br />
