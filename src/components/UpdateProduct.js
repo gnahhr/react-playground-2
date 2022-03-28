@@ -18,7 +18,7 @@ const UpdateProduct = () => {
 
 
   useEffect(async () => {
-    var url = `http://localhost:3001/api/product/${params.updateId}`;
+    var url = `https://4000-talyho-simplecrud-ud2iopxthxg.ws-us38.gitpod.io/api/product/${params.updateId}`;
         const response = await fetch(url, {
             method: 'GET', // *GET, POST, PUT, DELETE, etc.
             mode: 'cors', // no-cors, *cors, same-origin
@@ -39,7 +39,7 @@ const UpdateProduct = () => {
 
   const updateSubmit = async (e) => {
     e.preventDefault();
-      var url = `http://localhost:3001/api/product/${params.updateId}`;
+      var url = `https://4000-talyho-simplecrud-ud2iopxthxg.ws-us38.gitpod.io/api/product/${params.updateId}`;
       
       const data = new FormData();
       await data.append("name", name);

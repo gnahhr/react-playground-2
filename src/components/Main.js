@@ -5,7 +5,7 @@ const Main = () => {
   const [products, setProducts] = useState();
 
   useEffect(async () => {
-    var url = 'http://localhost:3001/api/products';
+    var url = 'https://4000-talyho-simplecrud-ud2iopxthxg.ws-us38.gitpod.io/api/products';
         const response = await fetch(url, {
             method: 'GET', // *GET, POST, PUT, DELETE, etc.
             mode: 'cors', // no-cors, *cors, same-origin

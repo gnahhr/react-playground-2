@@ -9,7 +9,7 @@ const AddProduct = () => {
 
   const addSubmit = async (e) => {
     e.preventDefault();
-      var url = 'http://localhost:3001/api/product';
+      var url = 'https://4000-talyho-simplecrud-ud2iopxthxg.ws-us38.gitpod.io/api/product';
       
       const data = new FormData();
       await data.append("name", name);
