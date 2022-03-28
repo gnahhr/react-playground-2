@@ -52,7 +52,6 @@ const onInputChange = (e)=>{
 
   return (
     <div>
-      <img src="http://localhost:3001/images/1648273883995-nayeon.jpg" alt="" />
       <label htmlFor="name">Name:</label> <br />
       <input type="text" name="name" id="name" value={name} onChange={(e) => onInputChange(e)}/><br />
       <label htmlFor="quantity">Quantity:</label> <br />

@@ -23,24 +23,19 @@ const Main = () => {
         setProducts(some["data"]);
   }, [])
 
-  const display = () => {
-    console.log(products);
-  }
-
   return (
     <main>
-      <button onClick={display}>Ge</button>
       {!products ?
           <h1>No Products</h1>
       : 
-        <table>
+        <table className="main-table">
           <thead>
             <tr>
               <th>ID</th>
+              <th>Image</th>
               <th>Name</th>
               <th>Quantity</th>
               <th>Expiration Date</th>
-              <th>Image URL</th>
               <th>Created At</th>
               <th colSpan={2}>ACTIONS</th>
             </tr>

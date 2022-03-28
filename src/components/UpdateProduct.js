@@ -39,7 +39,7 @@ const UpdateProduct = () => {
 
   const updateSubmit = async (e) => {
     e.preventDefault();
-      var url = 'http://localhost:3001/api/product';
+      var url = `http://localhost:3001/api/product/${params.updateId}`;
       
       const data = new FormData();
       await data.append("name", name);
@@ -48,7 +48,7 @@ const UpdateProduct = () => {
       await data.append("image", imgURL);
 
       const response = await fetch(url, {
-        method: 'GET', // *GET, POST, PUT, DELETE, etc.
+        method: 'PUT', // *GET, POST, PUT, DELETE, etc.
         mode: 'cors', // no-cors, *cors, same-origin
         cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
         credentials: 'same-origin', // include, *same-origin, omit

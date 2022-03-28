@@ -1,9 +1,8 @@
-import React, {useState} from 'react'
+import React from 'react'
 import {Link} from 'react-router-dom'
+import moment from "moment";
 
 const Product = ({data}) => {
-  const [id, setId] = useState(data.id);
-
   const deleteProduct = async (e) => {
     e.preventDefault();
       var url = `http://localhost:3001/api/product/`;
@@ -17,9 +16,13 @@ const Product = ({data}) => {
         mode: 'cors', // no-cors, *cors, same-origin
         cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
         credentials: 'same-origin', // include, *same-origin, omit
+        headers: {
+          'Content-Type': 'application/json'
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
         redirect: 'follow', // manual, *follow, error
         referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-        body: params // body data type must match "Content-Type" header
+        body: JSON.stringify(params) // body data type must match "Content-Type" header
     });
 
     console.log(await response.json());
@@ -27,11 +30,11 @@ const Product = ({data}) => {
   return (
     <tr>
       <td>{data.id}</td>
+      <td><img src={"http://localhost:3001/" + data.image_url} alt="image" /></td>
       <td>{data.name}</td>
       <td>{data.quantity}</td>
-      <td>{data.expiration_date}</td>
-      <td>{data.image_url}</td>
-      <td>{data.created_at}</td>
+      <td>{moment(data.expiration_date).format('yyyy-MM-DD')}</td>
+      <td>{moment(data.created_at).format('yyyy-MM-DD')}</td>
       <td><Link to={`/update/${data.id}`} key={data.id}>Update</Link></td>
       <td><button onClick={deleteProduct}>Delete</button></td>
     </tr>
