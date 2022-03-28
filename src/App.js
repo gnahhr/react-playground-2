@@ -16,7 +16,7 @@ function App() {
     <Router>
       <div className="App">
         <Header />
-        
+        <main>
           {token ?
             <Routes>
               <Route path="/" exact element={<Main />}/>
@@ -26,7 +26,7 @@ function App() {
             :
             <Login props={setToken}/>
           }
-        
+        </main>
         <Footer />
       </div>
     </Router>

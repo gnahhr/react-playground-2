@@ -1,11 +1,11 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
+import React from 'react';
+import {Link} from 'react-router-dom';
 import moment from "moment";
 
 const Product = ({data}) => {
   const deleteProduct = async (e) => {
     e.preventDefault();
-      var url = `https://4000-talyho-simplecrud-ud2iopxthxg.ws-us38.gitpod.io/api/product/`;
+      var url = `http://localhost:3001/api/product/`;
 
       const params = {
         "productId": data.id
@@ -30,7 +30,7 @@ const Product = ({data}) => {
   return (
     <tr>
       <td>{data.id}</td>
-      <td><img src={"https://4000-talyho-simplecrud-ud2iopxthxg.ws-us38.gitpod.io/" + data.image_url} alt="image" /></td>
+      <td><img src={"http://localhost:3001/" + data.image_url} alt="image" /></td>
       <td>{data.name}</td>
       <td>{data.quantity}</td>
       <td>{moment(data.expiration_date).format('yyyy-MM-DD')}</td>

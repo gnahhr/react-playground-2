@@ -1,5 +1,13 @@
 *{
+    margin:0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
     color: black;
+    background-color: #f9f4ef;
+    color: #716040;
 }
 
 img {
@@ -7,3 +15,133 @@ img {
     width: 50px;
     height: 50px;
 }
+
+/* Header */
+
+header {
+    background-color: #020826;
+    padding: 1rem auto;
+}
+
+header ul {
+    display: flex;
+}
+
+header ul li {
+    list-style-type: none;
+    padding: 1rem;
+}
+
+header ul li a {
+    text-decoration: none;
+    color: #fffffe;
+}
+
+header ul li a:hover {
+    color: #8c7851;
+}
+
+/* Main */
+main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.main-table th{
+    color: #020826;
+    padding: 2rem;
+}
+
+.main-table, .main-table th, .main-table td {
+    border: 1px solid black;
+}
+
+.main-table td {
+    padding: 1rem;
+    text-align: center;
+}
+
+.main-table a {
+    text-decoration: none;
+    border-radius: 25px;
+    background-color: #8c7851;
+    padding: .5rem;
+    color: #fffffe;
+}
+
+.main-table a:hover {
+    color: #fffffe;
+    background-color: #020826;
+}
+
+.main-table button {
+    text-decoration: none;
+    border-radius: 25px;
+    background-color: #f25042;
+    padding: .55rem;
+    color: #fffffe;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+.main-table button:hover {
+    color: #f25042;
+    cursor: pointer;
+    background-color: #020826;
+}
+
+/* Add Page */
+.addProduct {
+    background-color: #8c7851;
+    padding: 2rem;
+    border-radius: 25px;
+}
+
+.addProduct img {
+    display: block;
+    margin: auto;
+    width: 150px;
+    height: 150px;
+}
+
+
+.addProduct label {
+    margin: .25rem;
+    color: #fffffe;
+}
+
+.addProduct input {
+    margin: .25rem;
+    color: #020826;
+    padding: .25rem;
+    border-radius: 10px;
+    border: none;
+}
+
+.addProduct input[type=submit] {
+    text-decoration: none;
+    border-radius: 25px;
+    background-color: #020826;
+    padding: .75rem;
+    color: #fffffe;
+    border: none;
+    margin: 1rem auto 0 auto;
+    display: block;
+}
+
+.addProduct input[type=submit]:hover {
+    background-color: #fffffe;
+    color: #8c7851;
+    cursor: pointer;
+}
+
+.addProduct input[type=text],
+.addProduct input[type=number],
+.addProduct input[type=date] {
+    width: 100%;
+}
+
+
+

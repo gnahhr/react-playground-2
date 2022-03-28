@@ -8,6 +8,7 @@ const UpdateProduct = () => {
   const [ quantity, setQuantity ] = useState("");
   const [ expDate, setExpDate ] = useState("");
   const [ imgURL, setImgURL ] = useState("");
+  const [ def, setDef] = useState(true);
 
   const setAll = (data) => {
       setName(data.name);
@@ -18,7 +19,7 @@ const UpdateProduct = () => {
 
 
   useEffect(async () => {
-    var url = `https://4000-talyho-simplecrud-ud2iopxthxg.ws-us38.gitpod.io/api/product/${params.updateId}`;
+    var url = `http://localhost:3001/api/product/${params.updateId}`;
         const response = await fetch(url, {
             method: 'GET', // *GET, POST, PUT, DELETE, etc.
             mode: 'cors', // no-cors, *cors, same-origin
@@ -39,7 +40,7 @@ const UpdateProduct = () => {
 
   const updateSubmit = async (e) => {
     e.preventDefault();
-      var url = `https://4000-talyho-simplecrud-ud2iopxthxg.ws-us38.gitpod.io/api/product/${params.updateId}`;
+      var url = `http://localhost:3001/api/product/${params.updateId}`;
       
       const data = new FormData();
       await data.append("name", name);
@@ -70,6 +71,7 @@ const setInputValue = {
 const setFile = (e) => {
   setImgURL(e.target.files[0]);
   console.log(imgURL);
+  setDef(false);
 }
 
 const onInputChange = (e)=>{
@@ -80,7 +82,8 @@ const onInputChange = (e)=>{
 }
 
   return (
-    <div>
+    <div className="addProduct">
+      <img src={"http://localhost:3001/" + imgURL} alt="" /><br />
       <label htmlFor="name">Name:</label> <br />
       <input type="text" name="name" id="name" value={name} onChange={(e) => onInputChange(e)}/><br />
       <label htmlFor="quantity">Quantity:</label> <br />
@@ -88,7 +91,7 @@ const onInputChange = (e)=>{
       <label htmlFor="expiration_date">Expiration Date:</label> <br />
       <input type="date" name="expDate" id="expdate" value={expDate} onChange={(e) => onInputChange(e)}/><br />
       <label htmlFor="image">Image URL:</label> <br />
-      <input type="file" name="imgURL" id="imgURL" onChange={(e) => setFile(e)}/>
+      <input type="file" name="imgURL" id="imgURL" onChange={(e) => setFile(e)}/> <br />
       <input type="submit" value="Update It Jonathan" onClick={updateSubmit}/><br />
     </div>
   )

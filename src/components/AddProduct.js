@@ -9,7 +9,7 @@ const AddProduct = () => {
 
   const addSubmit = async (e) => {
     e.preventDefault();
-      var url = 'https://4000-talyho-simplecrud-ud2iopxthxg.ws-us38.gitpod.io/api/product';
+      var url = 'http://localhost:3001/api/product';
       
       const data = new FormData();
       await data.append("name", name);
@@ -51,7 +51,7 @@ const onInputChange = (e)=>{
 }
 
   return (
-    <div>
+    <div className="addProduct">
       <label htmlFor="name">Name:</label> <br />
       <input type="text" name="name" id="name" value={name} onChange={(e) => onInputChange(e)}/><br />
       <label htmlFor="quantity">Quantity:</label> <br />
@@ -59,8 +59,8 @@ const onInputChange = (e)=>{
       <label htmlFor="expiration_date">Expiration Date:</label> <br />
       <input type="date" name="expDate" id="expdate" value={expDate} onChange={(e) => onInputChange(e)}/><br />
       <label htmlFor="image">Image URL:</label> <br />
-      <input type="file" name="imgURL" id="imgURL" onChange={(e) => setFile(e)}/>
-      <input type="submit" value="Submit It Jonathan" onClick={addSubmit}/><br />
+      <input type="file" name="imgURL" id="imgURL" onChange={(e) => setFile(e)}/> <br />
+      <input type="submit" value="Add Product" onClick={addSubmit}/><br />
     </div>
   )
 }
