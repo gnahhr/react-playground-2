@@ -7,24 +7,25 @@ import AddProduct from './components/AddProduct.js'
 import UpdateProduct from './components/UpdateProduct.js'
 import React, { useState } from 'react'
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
-import Blank from './components/Blank.js';
+import useToken from './components/useToken.js'
 
 function App() {
-  const [token, setToken] = useState(true);
+
+  const { token, setToken } = useToken();
 
   return (  
     <Router>
       <div className="App">
         <Header />
         <main>
-          {token ?
+          {token === "Success" ?
             <Routes>
               <Route path="/" exact element={<Main />}/>
               <Route path="add" element={<AddProduct />}/>
               <Route path="update/:updateId" element={<UpdateProduct />}/>
             </Routes>
             :
-            <Login props={setToken}/>
+            <Login setToken={setToken}/>
           }
         </main>
         <Footer />

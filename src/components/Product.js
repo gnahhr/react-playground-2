@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate as navigate} from 'react-router-dom';
 import moment from "moment";
 
 const Product = ({data}) => {
@@ -25,7 +25,7 @@ const Product = ({data}) => {
         body: JSON.stringify(params) // body data type must match "Content-Type" header
     });
 
-    console.log(await response.json());
+    navigate("/");
   }
   return (
     <tr>

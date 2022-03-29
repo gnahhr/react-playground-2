@@ -23,6 +23,12 @@ header {
     padding: 1rem auto;
 }
 
+header h1 {
+    text-align: center;
+    padding: 1rem;
+    color: white;
+}
+
 header ul {
     display: flex;
 }
@@ -39,6 +45,36 @@ header ul li a {
 
 header ul li a:hover {
     color: #8c7851;
+}
+
+/* Login */
+
+.Login-form {
+    padding: 5rem 2rem;
+    background-color:#020826;
+    color: #FFF;
+    width: 30vw;
+    border-radius: 25px;
+    margin:auto;
+    transform:translateY(10%);
+}
+
+.Login-form h2 {
+    text-align: center;
+}
+
+.Login-form input, .Login-form button {
+    margin: .5rem auto;
+    width: 100%;
+}
+
+.Login-form button {
+    text-decoration: none;
+    border-radius: 5px;
+    background-color: #8c7851;
+    padding: .5rem;
+    color: #fffffe;
+    border: none;
 }
 
 /* Main */
@@ -142,6 +178,3 @@ main {
 .addProduct input[type=date] {
     width: 100%;
 }
-
-
-

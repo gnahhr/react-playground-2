@@ -24,7 +24,8 @@ const Login = ({setToken}) => {
             referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
             body: JSON.stringify(data) // body data type must match "Content-Type" header
         });
-        console.log(await response.json());
+        const final = await response.json();
+        setToken(final.status)
     };
 
     const setInputValue = {
@@ -41,7 +42,10 @@ const Login = ({setToken}) => {
 
     return (
         <div className="Login-form">
+            <h2>Log in</h2>
+            <label htmlFor="username">Username:</label> <br />
             <input type="text" value={username} onChange={(e) => onInputChange(e)} name="username" /> <br />
+            <label htmlFor="password">Password:</label> <br />
             <input type="password" name="password" id="userPass" value={password} onChange={(e) =>onInputChange(e)} /> <br />
             <button onClick={onClick}>Submit</button>
         </div>
