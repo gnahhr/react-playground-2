@@ -9,14 +9,30 @@ const UpdateProduct = () => {
   const [ expDate, setExpDate ] = useState("");
   const [ imgURL, setImgURL ] = useState("");
   const [ def, setDef] = useState(true);
+  const [ localImg, setLocImg] = useState("");
 
-  const setAll = (data) => {
+  const setAll = async (data) => {
       setName(data.name);
       setQuantity(data.quantity);
       setExpDate(moment(data.expiration_date).format('yyyy-MM-DD'));
-      setImgURL(data.image_url);
+
+      let response = await fetch(`http://localhost:3001/${data.image_url}`, {
+        method: 'GET', // *GET, POST, PUT, DELETE, etc.
+        mode: 'no-cors', // no-cors, *cors, same-origin
+      });
+
+      let imgData = await response.blob();
+      let metadata = {
+        type: 'image/jpeg'
+      };
+
+      setImgURL(new File([imgData], data.image_url.split("/")[1], metadata));
   }
 
+
+  // useEffect(async () => {
+    
+  // }, [])
 
   useEffect(async () => {
     var url = `http://localhost:3001/api/product/${params.updateId}`;
@@ -70,8 +86,15 @@ const setInputValue = {
 
 const setFile = (e) => {
   setImgURL(e.target.files[0]);
-  console.log(imgURL);
   setDef(false);
+
+  var imageElement = document.getElementById("formPic");
+  const reader = new FileReader();
+      reader.onloadend = () => {
+        imageElement.src = reader.result;
+  };
+
+  reader.readAsDataURL(e.target.files[0]);
 }
 
 const onInputChange = (e)=>{
@@ -83,7 +106,9 @@ const onInputChange = (e)=>{
 
   return (
     <div className="addProduct">
-      <img src={"http://localhost:3001/" + imgURL} alt="" /><br />
+      {def ? <img src={`http://localhost:3001/images/${imgURL.name ? imgURL.name : ""}`} alt="" id="formPic"/> : 
+       <img src={""} alt="" id="formPic"/>}
+      <br />
       <label htmlFor="name">Name:</label> <br />
       <input type="text" name="name" id="name" value={name} onChange={(e) => onInputChange(e)}/><br />
       <label htmlFor="quantity">Quantity:</label> <br />
