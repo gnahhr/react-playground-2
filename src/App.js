@@ -1,13 +1,13 @@
 import './App.css'
-import Header from './components/Header.js'
-import Main from './components/Main.js'
-import Footer from './components/Footer.js'
-import Login from './components/Login.js'
-import AddProduct from './components/AddProduct.js'
-import UpdateProduct from './components/UpdateProduct.js'
+import Header from './components/Header/Header.js'
+import Dashboard from './components/DashboardPage/DashboardPage.js'
+import Footer from './components/Footer/Footer.js'
+import Login from './components/LoginPage/Login.js'
+import AddProduct from './components/AddProductPage/AddProductPage.js'
+import UpdateProduct from './components/UpdateProductPage/UpdateProduct.js'
 import React, { useState } from 'react'
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
-import useToken from './components/useToken.js'
+import useToken from './utils/useToken.js'
 
 function App() {
 
@@ -20,7 +20,7 @@ function App() {
         <main>
           {token === "Success" ?
             <Routes>
-              <Route path="/" exact element={<Main />}/>
+              <Route path="/" exact element={<Dashboard />}/>
               <Route path="add" element={<AddProduct />}/>
               <Route path="update/:updateId" element={<UpdateProduct />}/>
             </Routes>
